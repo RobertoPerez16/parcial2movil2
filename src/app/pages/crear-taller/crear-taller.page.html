@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="first">
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title>Crear Taller</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formTaller" (ngSubmit)="submit()">
+    <ion-grid>
+      <ion-row>
+        <ion-col sizeSm="12" sizeMd="12" sizeLg="6" size="12">
+          <ion-item>
+            <ion-label position="floating">Nombre del taller</ion-label>
+            <ion-input type="text" formControlName="nombre">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+
+        <ion-col sizeSm="12" sizeMd="12" sizeLg="6" size="12">
+          <ion-item>
+            <ion-label position="floating">Hora</ion-label>
+            <ion-datetime formControlName="hora"
+                          display-format="h:mm A"
+                          picker-format="h:mm A">
+            </ion-datetime>
+          </ion-item>
+        </ion-col>
+
+        <ion-col sizeSm="12" sizeMd="12" sizeLg="6" size="12">
+          <ion-item>
+            <ion-label position="floating">Experto</ion-label>
+            <ion-input type="text" formControlName="experto">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-button expand="block"
+                [disabled]="!formTaller.valid"
+                type="submit">
+      Agregar Taller
+      <ion-icon name="save-outline" class="ion-padding">
+      </ion-icon>
+    </ion-button>
+  </form>
+</ion-content>

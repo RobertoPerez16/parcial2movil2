@@ -1,0 +1,145 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button auto-hide="true" menu="first">
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title>Crear Paciente</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formPaciente" (ngSubmit)="submit()">
+    <ion-grid>
+      <ion-row>
+        <ion-col sizeSm="12" sizeMd="12" sizeLg="6" size="12">
+          <ion-item>
+            <ion-label position="stacked">Nombre</ion-label>
+            <ion-input type="text"
+                       placeholder="Nombre del paciente"
+                       formControlName="nombre">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+
+        <ion-col sizeSm="12" sizeMd="12" sizeLg="6" size="12">
+          <ion-item>
+            <ion-label position="stacked">Apellido</ion-label>
+            <ion-input type="text"
+                       placeholder="Apellido del paciente"
+                       formControlName="apellido">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+
+        <ion-col sizeSm="12" sizeMd="12" sizeLg="6" size="12">
+          <ion-item>
+            <ion-label position="stacked">Edad</ion-label>
+            <ion-input type="number"
+                       placeholder="Edad del paciente"
+                       formControlName="edad">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+
+        <ion-col sizeSm="12" sizeMd="12" sizeLg="6" size="12">
+          <ion-item>
+            <ion-label position="stacked">Teléfono</ion-label>
+            <ion-input type="number"
+                       placeholder="teléfono del paciente"
+                       formControlName="telefono">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+
+        <ion-col sizeSm="12" sizeMd="12" sizeLg="6" size="12">
+          <ion-item>
+            <ion-label position="stacked">Dirección</ion-label>
+            <ion-input type="text"
+                       placeholder="Dirección del paciente"
+                       formControlName="direccion">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+
+        <ion-col sizeSm="12" sizeMd="12" sizeLg="6" size="12">
+          <ion-item>
+            <ion-label position="stacked">Estado Civil</ion-label>
+            <ion-input type="text"
+                       placeholder="Estado Civil del paciente"
+                       formControlName="estadoCivil">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+
+        <ion-col sizeSm="12" sizeMd="12" sizeLg="6" size="12">
+          <ion-item>
+            <ion-label position="stacked">Profesión</ion-label>
+            <ion-input type="text"
+                       placeholder="Profesión del paciente"
+                       formControlName="profesion">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+
+        <ion-col sizeSm="12" sizeMd="12" sizeLg="6" size="12">
+          <ion-item>
+            <ion-label position="stacked">Estrato</ion-label>
+            <ion-input type="number"
+                       placeholder="Estrato del paciente"
+                       formControlName="estrato">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+
+        <ion-col sizeSm="12" sizeMd="12" sizeLg="6" size="12">
+          <ion-item>
+            <ion-label position="stacked">Cargo</ion-label>
+            <ion-input type="text"
+                       placeholder="Cargo del paciente"
+                       formControlName="cargo">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+
+        <ion-col sizeSm="12" sizeMd="12" sizeLg="6" size="12">
+          <ion-item>
+            <ion-label position="stacked">Horas Trabajadas al día</ion-label>
+            <ion-input type="number"
+                       placeholder="Horas Trabajadas al día del paciente"
+                       formControlName="horasTrabajadasDia">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+
+        <ion-col sizeSm="12" sizeMd="12" sizeLg="6" size="12">
+          <ion-item>
+            <ion-label position="stacked">Cantidad de Alimentos al día</ion-label>
+            <ion-input type="number"
+                       placeholder="Cantidad de Alimentos al día del paciente"
+                       formControlName="cantAlimentosDia">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+
+        <ion-col sizeSm="12" sizeMd="12" sizeLg="12" size="12">
+          <ion-item>
+            <ion-label position="stacked">Ultimo nivel de estudios</ion-label>
+            <ion-input type="text"
+                       placeholder="Ultimo nivel de estudios del paciente"
+                       formControlName="ultimoNivelEstudio">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-button expand="block"
+                [disabled]="!formPaciente.valid"
+                type="submit">
+      Agregar paciente
+      <ion-icon name="save-outline" class="ion-padding">
+      </ion-icon>
+    </ion-button>
+  </form>
+</ion-content>
