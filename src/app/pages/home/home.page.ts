@@ -1,12 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { TallerService } from '../../services/taller/taller.service';
+import { Taller } from '../../interfaces/taller';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
 
-  constructor() {}
+  constructor(private tallerService: TallerService) {}
+
+  taller: Taller | any;
+
+  ngOnInit() {
+    this.taller = this.tallerService.obtenerTalleres().valueChanges();
+  }
 
 }

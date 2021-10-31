@@ -19,6 +19,10 @@ const routes: Routes = [
     path: 'crear-taller',
     loadChildren: () => import('./pages/crear-taller/crear-taller.module').then( m => m.CrearTallerPageModule)
   },
+  {
+    path: 'detalle-taller/:id',
+    loadChildren: () => import('./pages/detalle-taller/detalle-taller.module').then( m => m.DetalleTallerPageModule)
+  },
 
 ];
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { Paciente } from '../../interfaces/paciente';
 
 @Injectable({
@@ -11,6 +11,10 @@ export class PacienteService {
 
   crearPaciente(paciente: Paciente) {
     paciente.id = this.firestore.createId();
-    return this.firestore.collection('pacientes').add(paciente);
+    return this.firestore.doc(`pacientes/${ paciente.id }`).set(paciente);
+  }
+
+  obtenerPacientes(): AngularFirestoreCollection<Paciente> {
+    return this.firestore.collection('pacientes');
   }
 }

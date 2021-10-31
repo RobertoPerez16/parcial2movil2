@@ -17,7 +17,16 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <p>No se que poner aquí xD :v</p>
+  <div class="ion-padding">
+    <h2 class="ion-padding">Listado de Talleres</h2>
+    <ion-card *ngFor="let t of taller | async " routerLink="/detalle-taller/{{ t.id }}">
+      <ion-card-header>
+        {{ t.nombre }}
+      </ion-card-header>
+      <ion-card-content>
+          <ion-chip color="warning">Hora: {{ t.hora | date:'h:mm a' }}</ion-chip>
+          <ion-chip color="danger">Experto: {{ t.experto }}</ion-chip>
+      </ion-card-content>
+    </ion-card>
   </div>
 </ion-content>

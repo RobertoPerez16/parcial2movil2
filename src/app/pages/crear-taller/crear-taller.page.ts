@@ -23,7 +23,8 @@ export class CrearTallerPage implements OnInit {
     nombre: '',
     hora: '',
     experto: '',
-    cantInscritos: 0
+    cantInscritos: 0,
+    pacientes: []
   };
 
   constructor(private tallerService: TallerService, public alertCtrl: AlertController,
@@ -38,7 +39,8 @@ export class CrearTallerPage implements OnInit {
       nombre: this.formTaller.value.nombre,
       hora: this.formTaller.value.hora,
       experto: this.formTaller.value.experto,
-      cantInscritos: 0
+      cantInscritos: 0,
+      pacientes: []
     };
 
     const loading = await this.loadingCtrl.create();
