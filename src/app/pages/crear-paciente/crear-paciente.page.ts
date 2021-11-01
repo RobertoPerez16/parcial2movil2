@@ -40,7 +40,8 @@ export class CrearPacientePage implements OnInit {
     cargo: '',
     horasTrabajadasDia: 0,
     cantAlimentosDia: 0,
-    ultimoNivelEstudio: ''
+    ultimoNivelEstudio: '',
+    sumatoriaEncuesta: 0
   };
 
   constructor(private pacienteService: PacienteService,
@@ -64,7 +65,8 @@ export class CrearPacientePage implements OnInit {
       cargo: this.formPaciente.value.cargo,
       horasTrabajadasDia: this.formPaciente.value.horasTrabajadasDia,
       cantAlimentosDia: this.formPaciente.value.cantAlimentosDia,
-      ultimoNivelEstudio: this.formPaciente.value.ultimoNivelEstudio
+      ultimoNivelEstudio: this.formPaciente.value.ultimoNivelEstudio,
+      sumatoriaEncuesta: 0
     };
 
     const loading = await this.loadingCtrl.create();

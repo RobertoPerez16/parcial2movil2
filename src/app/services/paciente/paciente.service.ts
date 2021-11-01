@@ -17,4 +17,10 @@ export class PacienteService {
   obtenerPacientes(): AngularFirestoreCollection<Paciente> {
     return this.firestore.collection('pacientes');
   }
+
+  guardarEncuesta(sumatoriaEncuesta: number, id: string) {
+    return this.firestore.collection('pacientes').doc(id).update({
+      sumatoriaEncuesta
+    });
+  }
 }

@@ -23,6 +23,15 @@ const routes: Routes = [
     path: 'detalle-taller/:id',
     loadChildren: () => import('./pages/detalle-taller/detalle-taller.module').then( m => m.DetalleTallerPageModule)
   },
+  {
+    path: 'encuesta-estres',
+    loadChildren: () => import('./pages/encuesta-estres/encuesta-estres.module').then( m => m.EncuestaEstresPageModule)
+  },
+  {
+    path: 'resultado-encuesta/:datos',
+    loadChildren: () => import('./pages/resultado-encuesta/resultado-encuesta.module').then( m => m.ResultadoEncuestaPageModule)
+  },
+
 
 ];
 

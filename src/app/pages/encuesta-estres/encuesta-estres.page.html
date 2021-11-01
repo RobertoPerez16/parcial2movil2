@@ -1,0 +1,204 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="first">
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title>Stress App</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <form [formGroup]="form" class="formLogin" >
+      <ion-row>
+        <ion-col sizeLg="12" sizeMd="12" sizeSm="12" size="12">
+          <img src="assets/images/semaforo.jpg" alt="" sizes="" srcset="">
+        </ion-col>
+        <ion-col sizeLg="6" sizeMd="6" sizeSm="6" size="12">
+          <ion-item>
+            <ion-label position="floating">Paciente</ion-label>
+            <ion-select value="" onText="Okay" cancelText="Cancelar" formControlName="nombre">
+              <ion-select-option *ngFor="let p of pacientes | async" [value]="p" >{{ p.nombre }} {{ p.apellido }}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+        <ion-col sizeLg="6" sizeMd="6" sizeSm="6" size="12">
+          <ion-item>
+            <ion-label position="floating">Edad</ion-label>
+            <ion-input type="number" min="0" readonly formControlName="edad"> </ion-input>
+          </ion-item>
+        </ion-col>
+
+        <ion-col sizeLg="6" sizeMd="6" sizeSm="6" size="12">
+          <ion-item>
+            <ion-label position="floating">Imposibilidad de Conciliar el sueño</ion-label>
+            <ion-select value="" onText="Okay" cancelText="Cancelar" formControlName="pregunta1">
+              <ion-select-option value="1">1. Nunca</ion-select-option>
+              <ion-select-option value="2">2. Casi Nunca</ion-select-option>
+              <ion-select-option value="3">3. Pocas Veces</ion-select-option>
+              <ion-select-option value="4">4. Algunas Veces</ion-select-option>
+              <ion-select-option value="5">5. Frecuente</ion-select-option>
+              <ion-select-option value="6">6. Muy Frecuente</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+        <ion-col sizeLg="6" sizeMd="6" sizeSm="6" size="12">
+          <ion-item>
+            <ion-label position="floating">Jaquecas y dolores de cabeza</ion-label>
+            <ion-select value="" onText="Okay" cancelText="Cancelar" formControlName="pregunta2">
+              <ion-select-option value="1">1. Nunca</ion-select-option>
+              <ion-select-option value="2">2. Casi Nunca</ion-select-option>
+              <ion-select-option value="3">3. Pocas Veces</ion-select-option>
+              <ion-select-option value="4">4. Algunas Veces</ion-select-option>
+              <ion-select-option value="5">5. Frecuente</ion-select-option>
+              <ion-select-option value="6">6. Muy Frecuente</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+        <ion-col sizeLg="6" sizeMd="6" sizeSm="6" size="12">
+          <ion-item>
+            <ion-label position="floating">Indigestiones o molestias gastrointestinales</ion-label>
+            <ion-select value="" onText="Okay" cancelText="Cancelar" formControlName="pregunta3">
+              <ion-select-option value="1">1. Nunca</ion-select-option>
+              <ion-select-option value="2">2. Casi Nunca</ion-select-option>
+              <ion-select-option value="3">3. Pocas Veces</ion-select-option>
+              <ion-select-option value="4">4. Algunas Veces</ion-select-option>
+              <ion-select-option value="5">5. Frecuente</ion-select-option>
+              <ion-select-option value="6">6. Muy Frecuente</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+        <ion-col sizeLg="6" sizeMd="6" sizeSm="6" size="12">
+          <ion-item>
+            <ion-label position="floating">Sensación de cansansio extremo o agotamiento</ion-label>
+            <ion-select value="" onText="Okay" cancelText="Cancelar" formControlName="pregunta4">
+              <ion-select-option value="1">1. Nunca</ion-select-option>
+              <ion-select-option value="2">2. Casi Nunca</ion-select-option>
+              <ion-select-option value="3">3. Pocas Veces</ion-select-option>
+              <ion-select-option value="4">4. Algunas Veces</ion-select-option>
+              <ion-select-option value="5">5. Frecuente</ion-select-option>
+              <ion-select-option value="6">6. Muy Frecuente</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+        <ion-col sizeLg="6" sizeMd="6" sizeSm="6" size="12">
+          <ion-item>
+            <ion-label position="floating">Tendencia de comer, beber o fumar mas de lo habitual</ion-label>
+            <ion-select value="" onText="Okay" cancelText="Cancelar" formControlName="pregunta5">
+              <ion-select-option value="1">1. Nunca</ion-select-option>
+              <ion-select-option value="2">2. Casi Nunca</ion-select-option>
+              <ion-select-option value="3">3. Pocas Veces</ion-select-option>
+              <ion-select-option value="4">4. Algunas Veces</ion-select-option>
+              <ion-select-option value="5">5. Frecuente</ion-select-option>
+              <ion-select-option value="6">6. Muy Frecuente</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+        <ion-col sizeLg="6" sizeMd="6" sizeSm="6" size="12">
+          <ion-item>
+            <ion-label position="floating">Disminucion del interes sexual</ion-label>
+            <ion-select value="" onText="Okay" cancelText="Cancelar" formControlName="pregunta6">
+              <ion-select-option value="1">1. Nunca</ion-select-option>
+              <ion-select-option value="2">2. Casi Nunca</ion-select-option>
+              <ion-select-option value="3">3. Pocas Veces</ion-select-option>
+              <ion-select-option value="4">4. Algunas Veces</ion-select-option>
+              <ion-select-option value="5">5. Frecuente</ion-select-option>
+              <ion-select-option value="6">6. Muy Frecuente</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+        <ion-col sizeLg="6" sizeMd="6" sizeSm="6" size="12">
+          <ion-item>
+            <ion-label position="floating">Respiracion entrecortada o sensacion de ahogo</ion-label>
+            <ion-select value="" onText="Okay" cancelText="Cancelar" formControlName="pregunta7">
+              <ion-select-option value="1">1. Nunca</ion-select-option>
+              <ion-select-option value="2">2. Casi Nunca</ion-select-option>
+              <ion-select-option value="3">3. Pocas Veces</ion-select-option>
+              <ion-select-option value="4">4. Algunas Veces</ion-select-option>
+              <ion-select-option value="5">5. Frecuente</ion-select-option>
+              <ion-select-option value="6">6. Muy Frecuente</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+        <ion-col sizeLg="6" sizeMd="6" sizeSm="6" size="12">
+          <ion-item>
+            <ion-label position="floating">Disminucion del apetito</ion-label>
+            <ion-select value="" onText="Okay" cancelText="Cancelar" formControlName="pregunta8">
+              <ion-select-option value="1">1. Nunca</ion-select-option>
+              <ion-select-option value="2">2. Casi Nunca</ion-select-option>
+              <ion-select-option value="3">3. Pocas Veces</ion-select-option>
+              <ion-select-option value="4">4. Algunas Veces</ion-select-option>
+              <ion-select-option value="5">5. Frecuente</ion-select-option>
+              <ion-select-option value="6">6. Muy Frecuente</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+        <ion-col sizeLg="6" sizeMd="6" sizeSm="6" size="12">
+          <ion-item>
+            <ion-label position="floating">Temblores musculares (tics nevioso o parpadeo)</ion-label>
+            <ion-select value="" onText="Okay" cancelText="Cancelar" formControlName="pregunta9">
+              <ion-select-option value="1">1. Nunca</ion-select-option>
+              <ion-select-option value="2">2. Casi Nunca</ion-select-option>
+              <ion-select-option value="3">3. Pocas Veces</ion-select-option>
+              <ion-select-option value="4">4. Algunas Veces</ion-select-option>
+              <ion-select-option value="5">5. Frecuente</ion-select-option>
+              <ion-select-option value="6">6. Muy Frecuente</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+        <ion-col sizeLg="6" sizeMd="6" sizeSm="6" size="12">
+          <ion-item>
+            <ion-label position="floating">Pinchazos o sensaciones dolorosas en distintas partes del cuerpo</ion-label>
+            <ion-select value="" onText="Okay" cancelText="Cancelar" formControlName="pregunta10">
+              <ion-select-option value="1">1. Nunca</ion-select-option>
+              <ion-select-option value="2">2. Casi Nunca</ion-select-option>
+              <ion-select-option value="3">3. Pocas Veces</ion-select-option>
+              <ion-select-option value="4">4. Algunas Veces</ion-select-option>
+              <ion-select-option value="5">5. Frecuente</ion-select-option>
+              <ion-select-option value="6">6. Muy Frecuente</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+        <ion-col sizeLg="6" sizeMd="6" sizeSm="6" size="12">
+          <ion-item>
+            <ion-label position="floating">Tentaciones fuertes de no levantarse por la mañana</ion-label>
+            <ion-select value="" onText="Okay" cancelText="Cancelar" formControlName="pregunta11">
+              <ion-select-option value="1">1. Nunca</ion-select-option>
+              <ion-select-option value="2">2. Casi Nunca</ion-select-option>
+              <ion-select-option value="3">3. Pocas Veces</ion-select-option>
+              <ion-select-option value="4">4. Algunas Veces</ion-select-option>
+              <ion-select-option value="5">5. Frecuente</ion-select-option>
+              <ion-select-option value="6">6. Muy Frecuente</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+        <ion-col sizeLg="6" sizeMd="6" sizeSm="6" size="12">
+          <ion-item>
+            <ion-label position="floating">Tendencia a sudar o palpitaciones</ion-label>
+            <ion-select value="" onText="Okay" cancelText="Cancelar" formControlName="pregunta12">
+              <ion-select-option value="1">1. Nunca</ion-select-option>
+              <ion-select-option value="2">2. Casi Nunca</ion-select-option>
+              <ion-select-option value="3">3. Pocas Veces</ion-select-option>
+              <ion-select-option value="4">4. Algunas Veces</ion-select-option>
+              <ion-select-option value="5">5. Frecuente</ion-select-option>
+              <ion-select-option value="6">6. Muy Frecuente</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12">
+          <ion-button color="primary"
+                      [disabled]="!form.valid || loading"
+                      expand="block"
+                      (click)="enviar()">
+            <ion-spinner *ngIf="loading"></ion-spinner>
+            <ion-label style="margin-left: 10px;">Enviar</ion-label>
+            <ion-icon name="arrow-redo-circle-outline"
+                      class="ion-margin">
+            </ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+</ion-content>

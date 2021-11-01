@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="first">
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title>Resultados</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- List of Text Items -->
+<ion-list>
+  <ion-item>
+    <strong>Datos del Usuario</strong>
+  </ion-item>
+  <ion-item>
+    <ion-label>Nombre: {{ datos.paciente.nombre }} {{ datos.paciente.apellido }}</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>Edad: {{ datos.paciente.edad }}</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>Resultado: {{ datos.sumatoria }}</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label [style]="{ color: color}">
+        Diagnostico: {{ diagnostico }}
+    </ion-label>
+  </ion-item>
+  <ion-item [style]="{ color: color}">
+    <ion-label>Estres: {{ porcentaje.toFixed(3) }}%</ion-label>
+  </ion-item>
+  <ion-item>
+    <p [style]="{ color: color}">
+      {{ mensaje }}
+    </p>
+  </ion-item>
+  <br>
+  <ion-button type="submit" color="danger"
+              (click)="guardarResultado()"
+              expand="block">
+    Guardar Datos
+    <ion-icon name="save-outline" class="ion-margin"></ion-icon>
+  </ion-button>
+</ion-list>
+
+  <ion-grid *ngIf="urlSave && infoData">
+      <ion-row>
+          <ion-col>
+              <h3>Url dónde está almacenada la información: {{ urlSave.uri }}</h3>
+              <h3>Información Guardada: {{ infoData.data }}</h3>
+          </ion-col>
+      </ion-row>
+  </ion-grid>
+</ion-content>

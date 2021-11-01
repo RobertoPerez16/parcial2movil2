@@ -12,4 +12,5 @@ export interface Paciente {
     horasTrabajadasDia: number;
     cantAlimentosDia: number;
     ultimoNivelEstudio: string;
+    sumatoriaEncuesta: number;
 }
