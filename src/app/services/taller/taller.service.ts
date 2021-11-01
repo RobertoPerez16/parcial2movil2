@@ -23,9 +23,10 @@ export class TallerService {
     return this.firestore.collection('talleres').doc(id);
   }
 
-  agregarPacienteTaller(pacientes: Array<string>, id: string) {
+  agregarPacienteTaller(pacientes: Array<string>, id: string, cantInscritos: number) {
     return this.firestore.collection('talleres').doc(id).update({
-      pacientes
+      pacientes,
+      cantInscritos
     });
   }
 

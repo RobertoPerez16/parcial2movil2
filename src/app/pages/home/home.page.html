@@ -24,9 +24,12 @@
         {{ t.nombre }}
       </ion-card-header>
       <ion-card-content>
-          <ion-chip color="warning">Hora: {{ t.hora | date:'h:mm a' }}</ion-chip>
+          <ion-chip color="warning">Fecha: {{ t.hora | date:'dd/MM/YYYY h:mm a' }}</ion-chip>
           <ion-chip color="danger">Experto: {{ t.experto }}</ion-chip>
           <ion-chip color="success">Precio: {{ t.precio | currency }}</ion-chip>
+          <ion-chip [color]="t.cantInscritos === 0 ? 'danger': 'success'">
+            Cantidad de Inscritos: {{ t.cantInscritos }}
+          </ion-chip>
       </ion-card-content>
     </ion-card>
   </div>

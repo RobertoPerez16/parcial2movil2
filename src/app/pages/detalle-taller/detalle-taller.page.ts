@@ -17,6 +17,7 @@ export class DetalleTallerPage implements OnInit {
   paciente: Paciente | any;
   arrayInputs = [];
   pacientesId: Array<string> = [];
+  pacientesPorTaller: any = [];
 
   constructor(private tallerService: TallerService, private activateRoute: ActivatedRoute,
               public alertCtrl: AlertController, private pacienteService: PacienteService,
@@ -26,13 +27,23 @@ export class DetalleTallerPage implements OnInit {
   ngOnInit() {
     this.id = this.activateRoute.snapshot.paramMap.get('id');
     this.taller = this.tallerService.obtenerTaller(this.id).valueChanges();
+    this.taller.forEach(tall => {
+      const { pacientes } = tall;
+      this.pacientesPorTaller = [];
+      pacientes.forEach(p => {
+        const parseado = JSON.parse(p);
+        this.pacientesPorTaller.push(parseado);
+      });
+    });
+
+
     this.paciente = this.pacienteService.obtenerPacientes().valueChanges();
     this.paciente.forEach(p => {
         p.forEach(paciente => {
           this.arrayInputs.push({
             label: paciente.nombre,
             type: 'checkbox',
-            value: paciente.id,
+            value: JSON.stringify(paciente),
           });
         });
     });
@@ -66,7 +77,7 @@ export class DetalleTallerPage implements OnInit {
                   text: 'Sí',
                   handler: conf => {
                     if(this.pacientesId.length > 0){
-                      this.tallerService.agregarPacienteTaller(this.pacientesId, this.id).then(
+                      this.tallerService.agregarPacienteTaller(this.pacientesId, this.id, this.pacientesId.length).then(
                           () => {
                             this.presentToast('Lista de Pacientes Guardada Exitosamente');
                           },

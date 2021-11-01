@@ -11,9 +11,15 @@
   <ion-card>
      <ion-card-title class="ion-padding">{{ ( taller | async )?.nombre }}</ion-card-title>
      <ion-card-content>
-        <p>Hora: {{ ( taller | async )?.hora | date:'hh:mm a' }}</p>
-        <p>Experto: {{ ( taller | async )?.experto }}</p>
-        <p>Comentarios: {{ ( taller | async)?.comentarios }}</p>
+        <div class="ion-padding-vertical">
+            <p>Hora: {{ ( taller | async )?.hora | date:'dd/MM/YYYY h:mm a' }}</p>
+            <p>Experto: {{ ( taller | async )?.experto }}</p>
+            <p>Comentarios: {{ ( taller | async)?.comentarios }}</p>
+        </div>
+
+        <ion-chip [color]="( taller | async)?.cantInscritos === 0 ? 'danger': 'success'">
+            Cantidad de Inscritos: {{ ( taller | async)?.cantInscritos }}
+        </ion-chip>
      </ion-card-content>
     <ion-grid>
       <ion-row>
@@ -31,4 +37,21 @@
       </ion-row>
     </ion-grid>
   </ion-card>
+
+  <ion-card class="ion-margin-top" *ngIf="pacientesPorTaller.length > 0; else sinPacientes">
+      <ion-card-title class="ion-padding">Pacientes Inscritos:</ion-card-title>
+      <ion-card-content>
+          <ion-item-divider *ngFor="let paciente of pacientesPorTaller">
+              <ion-label>
+                  Nombre: {{ paciente.nombre }} <br/> Apellido: {{ paciente.apellido }} <br/> Edad: {{ paciente.edad }}
+              </ion-label>
+          </ion-item-divider>
+      </ion-card-content>
+  </ion-card>
+
+  <ng-template #sinPacientes>
+      <center>
+          <ion-chip color="danger">No hay Pacientes inscritos aún</ion-chip>
+      </center>
+  </ng-template>
 </ion-content>
