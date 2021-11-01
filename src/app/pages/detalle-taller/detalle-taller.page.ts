@@ -85,4 +85,41 @@ export class DetalleTallerPage implements OnInit {
     await alertaPaciente.present();
   }
 
+  async abrirAlertComentario() {
+    const alertaComentario = await this.alertCtrl.create({
+      header: 'Agrege un comentario de este Taller',
+      inputs: [
+        {
+          placeholder: 'Escriba su comentario',
+          type: 'textarea',
+          value: ''
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancelar',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Guardar',
+          handler: conf => {
+            this.tallerService.agregarComentarioTaller(conf['0'], this.id).then(
+              () =>{
+                console.log('Listo');
+              },
+              error => {
+                console.log(error);
+              }
+            );
+            console.log(conf);
+          }
+        }
+      ]
+    });
+
+    await alertaComentario.present();
+  }
+
 }

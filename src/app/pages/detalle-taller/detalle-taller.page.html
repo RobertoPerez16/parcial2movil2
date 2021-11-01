@@ -13,6 +13,7 @@
      <ion-card-content>
         <p>Hora: {{ ( taller | async )?.hora | date:'hh:mm a' }}</p>
         <p>Experto: {{ ( taller | async )?.experto }}</p>
+        <p>Comentarios: {{ ( taller | async)?.comentarios }}</p>
      </ion-card-content>
     <ion-grid>
       <ion-row>
@@ -23,12 +24,11 @@
         </ion-col>
 
         <ion-col size="6" size-xs="12" size-md="6">
-          <ion-button color="primary" expand="block">
+          <ion-button color="primary" expand="block" (click)="abrirAlertComentario()">
             Agregar comentarios
           </ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>
-
   </ion-card>
 </ion-content>

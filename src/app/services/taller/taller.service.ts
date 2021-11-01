@@ -28,4 +28,10 @@ export class TallerService {
       pacientes
     });
   }
+
+  agregarComentarioTaller(comentarios: string, id: string) {
+    return this.firestore.collection('talleres').doc(id).update({
+      comentarios
+    });
+  }
 }

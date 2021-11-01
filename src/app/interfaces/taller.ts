@@ -5,4 +5,5 @@ export interface Taller {
     experto: string;
     pacientes: Array<string>;
     cantInscritos: number;
+    comentarios: string;
 }
