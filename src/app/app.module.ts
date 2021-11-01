@@ -16,10 +16,17 @@ import { firebaseConfig } from './credenciales';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 // menu //
 import { MenuComponent } from './components/menu/menu.component';
+import { ListaTalleresComponent } from './components/lista-talleres/lista-talleres.component';
+import { ListaPacientesComponent } from './components/lista-pacientes/lista-pacientes.component';
 
 
 @NgModule({
-  declarations: [AppComponent, MenuComponent],
+  declarations: [
+    AppComponent,
+    MenuComponent,
+    ListaTalleresComponent,
+    ListaPacientesComponent
+  ],
   entryComponents: [],
   imports: [
       BrowserModule,

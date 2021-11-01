@@ -9,9 +9,9 @@ import { Taller } from '../../interfaces/taller';
 })
 export class HomePage implements OnInit {
 
-  constructor(private tallerService: TallerService) {}
-
   taller: Taller | any;
+
+  constructor(private tallerService: TallerService) {}
 
   ngOnInit() {
     this.taller = this.tallerService.obtenerTalleres().valueChanges();
