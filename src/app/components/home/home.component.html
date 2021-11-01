@@ -6,10 +6,10 @@
     </ion-card-header>
     <ion-card-content>
       <ion-chip color="success">
-        Hora: 7:00 AM a 12:00 M
+        7:00 AM a 6:00 PM
       </ion-chip>
-      <ion-chip color="success">
-        Hora: 2:00 PM a 6:00 PM
+      <ion-chip [color]="hora.getHours() >= 7 && hora.getHours() < 18 ? 'success' : 'danger'">
+        {{ hora.getHours() >= 7 && hora.getHours() < 18 ? 'Abierto' : 'Cerrado' }}
       </ion-chip>
     </ion-card-content>
   </ion-card>

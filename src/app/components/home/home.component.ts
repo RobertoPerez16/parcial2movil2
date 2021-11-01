@@ -12,8 +12,12 @@ export class HomeComponent implements OnInit {
     speed: 400,
     autoplay:true,
   };
+
+  hora; 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.hora = new Date();
+  }
 
 }
