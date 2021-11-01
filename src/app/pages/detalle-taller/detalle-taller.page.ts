@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TallerService } from '../../services/taller/taller.service';
 import { ActivatedRoute } from '@angular/router';
 import { Taller } from '../../interfaces/taller';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
 import { Paciente } from '../../interfaces/paciente';
 import { PacienteService } from '../../services/paciente/paciente.service';
 
@@ -19,7 +19,8 @@ export class DetalleTallerPage implements OnInit {
   pacientesId: Array<string> = [];
 
   constructor(private tallerService: TallerService, private activateRoute: ActivatedRoute,
-              public alertCtrl: AlertController, private pacienteService: PacienteService) { }
+              public alertCtrl: AlertController, private pacienteService: PacienteService,
+              public toastController: ToastController) { }
 
 
   ngOnInit() {
@@ -64,14 +65,18 @@ export class DetalleTallerPage implements OnInit {
                 {
                   text: 'Sí',
                   handler: conf => {
-                    this.tallerService.agregarPacienteTaller(this.pacientesId, this.id).then(
-                        () => {
-                          console.log('se realizó bien');
-                        },
-                        error => {
-                          console.log('Error: ', error);
-                        }
-                    );
+                    if(this.pacientesId.length > 0){
+                      this.tallerService.agregarPacienteTaller(this.pacientesId, this.id).then(
+                          () => {
+                            this.presentToast('Lista de Pacientes Guardada Exitosamente');
+                          },
+                          error => {
+                            console.log('Error: ', error);
+                          }
+                      );
+                    }else{
+                      this.presentToast('Seleccione al menos un paciente');
+                    }
                   }
                 }
               ]
@@ -105,14 +110,18 @@ export class DetalleTallerPage implements OnInit {
         {
           text: 'Guardar',
           handler: conf => {
-            this.tallerService.agregarComentarioTaller(conf['0'], this.id).then(
-              () =>{
-                console.log('Listo');
-              },
-              error => {
-                console.log(error);
-              }
-            );
+            if(conf[0] !== ''){
+              this.tallerService.agregarComentarioTaller(conf['0'], this.id).then(
+                () =>{
+                  this.presentToast('Comentarios Guardados Exitosamente');
+                },
+                error => {
+                  console.log(error);
+                }
+              );
+            }else{
+              this.presentToast('La caja de texto no puede estar vacia');
+            }
             console.log(conf);
           }
         }
@@ -120,6 +129,14 @@ export class DetalleTallerPage implements OnInit {
     });
 
     await alertaComentario.present();
+  }
+
+  async presentToast(mensaje) {
+    const toast = await this.toastController.create({
+      message: `${mensaje}`,
+      duration: 2000
+    });
+    toast.present();
   }
 
 }
