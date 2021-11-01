@@ -9,12 +9,15 @@ import { Taller } from '../../interfaces/taller';
 })
 export class HomePage implements OnInit {
 
-  taller: Taller | any;
-
+  //taller: Taller | any;
+  titulo = 'Inicio';
   constructor(private tallerService: TallerService) {}
 
   ngOnInit() {
-    this.taller = this.tallerService.obtenerTalleres().valueChanges();
+    //this.taller = this.tallerService.obtenerTalleres().valueChanges();
   }
 
+  cambiarTitulo(titulo){
+    this.titulo = titulo;
+  }
 }

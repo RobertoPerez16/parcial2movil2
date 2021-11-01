@@ -15,13 +15,13 @@
     <strong>Datos del Usuario</strong>
   </ion-item>
   <ion-item>
-    <ion-label>Nombre: {{ datos.paciente.nombre }} {{ datos.paciente.apellido }}</ion-label>
+    <ion-label>Nombre: {{ datos ? datos.paciente.nombre : '' }} {{ datos ? datos.paciente.apellido : '' }}</ion-label>
   </ion-item>
   <ion-item>
-    <ion-label>Edad: {{ datos.paciente.edad }}</ion-label>
+    <ion-label>Edad: {{ datos ? datos.paciente.edad : ''}}</ion-label>
   </ion-item>
   <ion-item>
-    <ion-label>Resultado: {{ datos.sumatoria }}</ion-label>
+    <ion-label>Resultado: {{ datos ? datos.sumatoria : '' }}</ion-label>
   </ion-item>
   <ion-item>
     <ion-label [style]="{ color: color}">
@@ -29,7 +29,7 @@
     </ion-label>
   </ion-item>
   <ion-item [style]="{ color: color}">
-    <ion-label>Estres: {{ porcentaje.toFixed(3) }}%</ion-label>
+    <ion-label>Estres: {{ porcentaje ? porcentaje.toFixed(3) : '' }}%</ion-label>
   </ion-item>
   <ion-item>
     <p [style]="{ color: color}">

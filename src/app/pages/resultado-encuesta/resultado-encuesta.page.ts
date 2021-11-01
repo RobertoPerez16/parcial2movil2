@@ -46,26 +46,26 @@ export class ResultadoEncuestaPage implements OnInit {
   }
 
   verify() {
-      const suma = this.datos.sumatoria;
-      this.porcentaje = (suma * 100)/72;
+    const suma = this.datos.sumatoria;
+    this.porcentaje = (suma * 100)/72;
 
-     if (this.datos.sumatoria === 12) {
-       this.color = '#34d5eb';
-       this.diagnostico = 'Sin estrés';
-       this.mensaje = this.textos[0];
-     }
+    if (this.datos.sumatoria === 12) {
+      this.color = '#34d5eb';
+      this.diagnostico = 'Sin estrés';
+      this.mensaje = this.textos[0];
+    }
 
-     if (this.datos.sumatoria > 12 && this.datos.sumatoria <= 24 ) {
-       this.color = '#347deb';
-       this.diagnostico = 'Sin estrés';
-       this.mensaje = this.textos[0];
-     }
+    if (this.datos.sumatoria > 12 && this.datos.sumatoria <= 24 ) {
+      this.color = '#347deb';
+      this.diagnostico = 'Sin estrés';
+      this.mensaje = this.textos[0];
+    }
 
-     if (this.datos.sumatoria > 24 && this.datos.sumatoria <= 36) {
-       this.color = '#34eb71';
-       this.diagnostico = 'Estrés Leve';
-       this.mensaje = this.textos[1];
-     }
+    if (this.datos.sumatoria > 24 && this.datos.sumatoria <= 36) {
+      this.color = '#34eb71';
+      this.diagnostico = 'Estrés Leve';
+      this.mensaje = this.textos[1];
+    }
 
     if (this.datos.sumatoria > 36 && this.datos.sumatoria <= 48) {
       this.color = '#ebe234';

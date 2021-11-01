@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Paciente } from 'src/app/interfaces/paciente';
+import { PacienteService } from 'src/app/services/paciente/paciente.service';
 
 @Component({
   selector: 'app-lista-pacientes',
@@ -6,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lista-pacientes.component.scss'],
 })
 export class ListaPacientesComponent implements OnInit {
+  paciente: Paciente | any;
 
-  constructor() { }
+  constructor(
+    private pacienteService: PacienteService
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.paciente = this.pacienteService.obtenerPacientes().valueChanges();
+    console.log(this.paciente);
+  }
 
 }

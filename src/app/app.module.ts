@@ -18,6 +18,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MenuComponent } from './components/menu/menu.component';
 import { ListaTalleresComponent } from './components/lista-talleres/lista-talleres.component';
 import { ListaPacientesComponent } from './components/lista-pacientes/lista-pacientes.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ListaPacientesComponent } from './components/lista-pacientes/lista-paci
     AppComponent,
     MenuComponent,
     ListaTalleresComponent,
-    ListaPacientesComponent
+    ListaPacientesComponent,
+    HomeComponent
   ],
   entryComponents: [],
   imports: [
