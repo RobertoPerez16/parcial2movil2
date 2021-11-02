@@ -1,15 +1,18 @@
 <ion-content class="ion-margin">
   <br/><br/><br/>
-  <ion-card *ngFor="let p of pacientes">
-    <ion-card-header>
-      <h5>{{ p.nombre }} {{ p.apellido }}</h5>
-    </ion-card-header>
-    <ion-card-content>
-      <p>Edad: {{ p.edad }}</p>
-      <p>Dirección: {{ p.direccion }}</p>
-      <p>Telefono: {{ p.telefono }}</p>
-      <ion-chip color="danger"> Nivel de estres: Grave</ion-chip>
-      <ion-chip color="danger">Sumatoria Encuesta: {{ p.sumatoriaEncuesta }}</ion-chip>
-    </ion-card-content>
+  <ion-card *ngFor="let p of pacientes | async ">
+    <div *ngIf="p.sumatoriaEncuesta >= 60 && p.sumatoriaEncuesta <= 72">
+      <ion-card-header>
+        <h5>{{ p.nombre }} {{ p.apellido }}</h5>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Edad: {{ p.edad }}</p>
+        <p>Dirección: {{ p.direccion }}</p>
+        <p>Telefono: {{ p.telefono }}</p>
+        <ion-chip color="danger"> Nivel de estres: Grave</ion-chip>
+        <ion-chip color="danger">Sumatoria Encuesta: {{ p.sumatoriaEncuesta }}</ion-chip>
+      </ion-card-content>
+    </div>
+
   </ion-card>
 </ion-content>

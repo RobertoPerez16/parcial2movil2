@@ -15,14 +15,16 @@ export class ListaPacientesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.pacienteService.obtenerPacientesCriticos().then(data =>{
+    this.pacientes = this.pacienteService.obtenerPacientes().valueChanges();
+  }
+    /* this.pacienteService.obtenerPacientesCriticos().then(data =>{
       data.forEach((p) => {
         this.pacientes.push({
           id: p.id,
           ...p.data() as Paciente,
         });
       });
-    }).catch(err => console.log(err));
-  }
+    }).catch(err => console.log(err)); */
+
 
 }
