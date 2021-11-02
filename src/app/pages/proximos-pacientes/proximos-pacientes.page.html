@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Próximos pacientes</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h1>Estos son los próximos usuarios que deben realizarse la prueba de estrés:</h1>
+  <br/>
+  <ion-list *ngFor="let paciente of pacientes">
+    <ion-item class="ion-padding-vertical">
+      Nombre: {{ paciente.name }}<br/>
+      Email: {{ paciente.email }}<br/>
+      Teléfono: {{ paciente.phone }}
+      Direccion: {{ paciente.address.city }} {{ paciente.address.street }}
+    </ion-item>
+  </ion-list>
+</ion-content>

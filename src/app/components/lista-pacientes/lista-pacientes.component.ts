@@ -8,15 +8,21 @@ import { PacienteService } from 'src/app/services/paciente/paciente.service';
   styleUrls: ['./lista-pacientes.component.scss'],
 })
 export class ListaPacientesComponent implements OnInit {
-  paciente: Paciente | any;
+  pacientes: Paciente | any = [];
 
   constructor(
     private pacienteService: PacienteService
   ) { }
 
   ngOnInit() {
-    this.paciente = this.pacienteService.obtenerPacientes().valueChanges();
-    console.log(this.paciente);
+    this.pacienteService.obtenerPacientesCriticos().then(data =>{
+      data.forEach((p) => {
+        this.pacientes.push({
+          id: p.id,
+          ...p.data() as Paciente,
+        });
+      });
+    }).catch(err => console.log(err));
   }
 
 }

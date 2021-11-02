@@ -1,8 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button menu="first">
-      </ion-menu-button>
+      <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title>Resultados</ion-title>
   </ion-toolbar>
@@ -15,10 +14,10 @@
     <strong>Datos del Usuario</strong>
   </ion-item>
   <ion-item>
-    <ion-label>Nombre: {{ datos ? datos.paciente.nombre : '' }} {{ datos ? datos.paciente.apellido : '' }}</ion-label>
+    <ion-label>Nombre: {{ datos ? datos.nombre : '' }} {{ datos ? datos.apellido : '' }}</ion-label>
   </ion-item>
   <ion-item>
-    <ion-label>Edad: {{ datos ? datos.paciente.edad : ''}}</ion-label>
+    <ion-label>Edad: {{ datos ? datos.edad : ''}}</ion-label>
   </ion-item>
   <ion-item>
     <ion-label>Resultado: {{ datos ? datos.sumatoria : '' }}</ion-label>
@@ -44,13 +43,4 @@
     <ion-icon name="save-outline" class="ion-margin"></ion-icon>
   </ion-button>
 </ion-list>
-
-  <ion-grid *ngIf="urlSave && infoData">
-      <ion-row>
-          <ion-col>
-              <h3>Url dónde está almacenada la información: {{ urlSave.uri }}</h3>
-              <h3>Información Guardada: {{ infoData.data }}</h3>
-          </ion-col>
-      </ion-row>
-  </ion-grid>
 </ion-content>

@@ -52,7 +52,7 @@ export class CrearTallerPage implements OnInit {
     this.tallerService.crearTaller(this.taller).then(
         () => {
           loading.dismiss().then(() =>{
-            this.router.navigateByUrl('/');
+            this.router.navigateByUrl('/lista-talleres');
           });
         },
         async error => {

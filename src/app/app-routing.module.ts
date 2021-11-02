@@ -31,6 +31,11 @@ const routes: Routes = [
     path: 'resultado-encuesta/:datos',
     loadChildren: () => import('./pages/resultado-encuesta/resultado-encuesta.module').then( m => m.ResultadoEncuestaPageModule)
   },
+  {
+    path: 'proximos-pacientes',
+    loadChildren: () => import('./pages/proximos-pacientes/proximos-pacientes.module').then( m => m.ProximosPacientesPageModule)
+  },
+
 
 
 ];

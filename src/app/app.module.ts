@@ -19,7 +19,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { ListaTalleresComponent } from './components/lista-talleres/lista-talleres.component';
 import { ListaPacientesComponent } from './components/lista-pacientes/lista-pacientes.component';
 import { HomeComponent } from './components/home/home.component';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,8 @@ import { HomeComponent } from './components/home/home.component';
       AngularFirestoreModule,
       AngularFireModule.initializeApp(firebaseConfig),
       FormsModule,
-      ReactiveFormsModule
+      ReactiveFormsModule,
+      HttpClientModule
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

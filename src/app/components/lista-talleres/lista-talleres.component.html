@@ -1,6 +1,5 @@
-<div class="ion-margin">
-  <br><br><br>
-  <!-- <h2 class="ion-padding">Listado de Talleres</h2> -->
+<ion-content class="ion-margin">
+  <br/><br/><br/>
   <ion-card *ngFor="let t of taller | async " routerLink="/detalle-taller/{{ t.id }}">
     <ion-card-header>
       {{ t.nombre }}
@@ -14,4 +13,4 @@
         </ion-chip>
     </ion-card-content>
   </ion-card>
-</div>
+</ion-content>

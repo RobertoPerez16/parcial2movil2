@@ -76,7 +76,10 @@ export class EncuestaEstresPage implements OnInit {
       setTimeout(() => {
         const sumatoria = respuestas.reduce((a, b) => a + b);
         this.datos = {
-          paciente: this.nombre.value,
+          nombre: this.nombre.value.nombre,
+          edad: this.nombre.value.edad,
+          apellido: this.nombre.value.apellido,
+          id: this.nombre.value.id,
           sumatoria
         };
         this.nav.navigateForward(`/resultado-encuesta/${ JSON.stringify(this.datos) }`);

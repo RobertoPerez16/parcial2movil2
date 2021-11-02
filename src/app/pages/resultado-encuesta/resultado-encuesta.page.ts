@@ -41,7 +41,6 @@ export class ResultadoEncuestaPage implements OnInit {
     //this.datos = JSON.parse(this.route.snapshot.paramMap.get('datos'));
     const res = JSON.parse(this.route.snapshot.paramMap.get('datos'));
     this.datos = res;
-    console.log(res);
     this.verify();
   }
 
@@ -87,7 +86,7 @@ export class ResultadoEncuestaPage implements OnInit {
   }
 
   guardarResultado(){
-    this.pacienteService.guardarEncuesta(this.datos.sumatoria, this.datos.paciente.id).then(
+    this.pacienteService.guardarEncuesta(this.datos.sumatoria, this.datos.id).then(
       () => {
         this.presentToast('Resultados Guardados');
       },
